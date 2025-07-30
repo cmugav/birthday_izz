@@ -32,7 +32,10 @@ if 'section' not in st.session_state:
 # --- MAIN CONTAINER ---
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
-# --- MENU SECTION ---
+# --- MAIN CONTAINER ---
+st.markdown('<div class="container">', unsafe_allow_html=True)
+
+# --- STRICT MENU BLOCK ---
 if st.session_state.section == 'Menu':
     st.title("HAPPY BIRTHDAY POOKIE")
 
