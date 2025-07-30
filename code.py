@@ -1,18 +1,15 @@
 import streamlit as st
 from datetime import datetime
 from PIL import Image
-import time
 
 st.set_page_config(page_title = "HAPPY BIRTHDAY POOKIE", layout="centered")
 
 st.markdown("""
     <style>
-    /* Hide Streamlit default header and footer */
     #MainMenu, header, footer {
         visibility: hidden;
     }
 
-    /* Optional: hide top blank space */
     .css-18ni7ap.e8zbici2 {
         padding-top: 0rem;
     }
@@ -32,23 +29,17 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- SESSION STATE FOR PAGE NAVIGATION ---
-
-if 'section' not in st.session_state:
-    st.session_state.section = 'Cumpleaños Feliz'
-
-# --- MAIN MOBILE CONTAINER ---
-
-st.markdown('<div class="container">', unsafe_allow_html=True)
-
-# Show buttons only when section is 'Menu'
-
+# Initialize session state to show menu first
 if 'section' not in st.session_state:
     st.session_state.section = 'Menu'
 
-st.title("HAPPY BIRTHDAY POOKIE")
+# --- MAIN MOBILE CONTAINER ---
+st.markdown('<div class="container">', unsafe_allow_html=True)
 
+# Only show title and buttons on menu page
 if st.session_state.section == 'Menu':
+    st.title("HAPPY BIRTHDAY POOKIE")
+
     if st.button("Cumpleaños Feliz", key="home", help="Happy berdei to you"):
         st.session_state.section = 'Cumpleaños Feliz'
     if st.button("Dear Izzy", key="love", help="A little letter for you"):
@@ -58,6 +49,7 @@ if st.session_state.section == 'Menu':
     if st.button("Countdown", key="countdown", help="Countdown"):
         st.session_state.section = 'Countdown'
     st.divider()
+
 
 
 # --- SECTION CONTENT ---
