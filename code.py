@@ -46,8 +46,8 @@ st.title("HAPPY BIRTHDAY POOKIE")
 
 if st.button("Home", key="home", help = "Home"):
     st.session_state.section = 'Home'
-if st.button("Love Confession", key="love", help = "This is my love confession"):
-    st.session_state.section = 'Love Confession'
+if st.button("Dear Izzy", key="love", help = "A little letter for you"):
+    st.session_state.section = 'Dear Izzy'
 if st.button("Some of my favorite photos", key="photos", help = "Photos"):
     st.session_state.section = 'Some of my favorite photos'
 if st.button("Countdown", key="countdown", help = "Countdown"):
@@ -76,7 +76,7 @@ if section == 'Home':
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
 
-elif section == 'Love Confession':
+elif section == 'Dear Izzy':
     st.header("Dear Isabella,")
     st.markdown("You know I'm kind of a hopeless romantic, so this is a short message for you.")
     st.markdown("Yo sé que, para ti, tu cumpleaños no es un día muy importante, pero para mi lo es. Estamos celebrando tu vida, y estoy segura de que eso es necesario, porque eres maravillosa, Isa. Personalmente, siento que eres un ángel caído del cielo")
@@ -97,7 +97,7 @@ elif section == 'Love Confession':
 elif section == 'Some of my favorite photos':
     st.header("Our Photos")
     st.markdown("I love photos and videos. I love documenting my life and the people I share it with.")
-    st.markdown("And I love you, so I love our photos.")
+    st.markdown("And I love you, so I love OUR photos.")
     st.markdown("A continuación, algunas de mis fotos favoritas de las dos.")
     try:
         image1 = Image.open("Images/image1.jpeg")
