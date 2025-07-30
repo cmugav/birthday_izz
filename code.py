@@ -41,11 +41,15 @@ if 'section' not in st.session_state:
 
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
-# --- VERTICAL NAVIGATION BUTTONS ONLY ON HOME ---
+# Show buttons only when section is 'Menu'
+if 'section' not in st.session_state:
+    st.session_state.section = 'Menu'
 
 st.title("HAPPY BIRTHDAY POOKIE")
 
-if st.session_state.section == 'Home':
+if st.session_state.section == 'Menu':
+    if st.button("Cumpleaños Feliz", key="home", help="Happy berdei to you"):
+        st.session_state.section = 'Cumpleaños Feliz'
     if st.button("Dear Izzy", key="love", help="A little letter for you"):
         st.session_state.section = 'Dear Izzy'
     if st.button("Some of my favorite photos", key="photos", help="Photos"):
@@ -58,7 +62,7 @@ if st.session_state.section == 'Home':
 # --- SECTION CONTENT ---
 section = st.session_state.section
 
-if section == 'Home':
+if section == 'Cumpleaños Feliz':
     st.header("HAPPY BIRTHDAY ISABELLA!")
     st.markdown("I actually don't know what this is, but I thought it would be a nice gesture for your birthday.")
     st.markdown("Not being there with you makes me deeply sad, but I'm really happy that you're getting to spend your birthday with Naya and Malou.")
@@ -75,6 +79,9 @@ if section == 'Home':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
+    if st.button("Return to buttons"):
+        st.session_state.section = 'Menu'
+
 
 elif section == 'Dear Izzy':
     st.header("Dear Isabella,")
@@ -96,6 +103,8 @@ elif section == 'Dear Izzy':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
+    if st.button("Return to buttons"):
+        st.session_state.section = 'Menu'
 
 elif section == 'Some of my favorite photos':
     st.header("Our Photos")
@@ -117,6 +126,8 @@ elif section == 'Some of my favorite photos':
         st.image([image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11])
     except FileNotFoundError:
         st.warning("⚠️ Add photos to the folder.")
+    if st.button("Return to buttons"):
+        st.session_state.section = 'Menu'
 
 elif section == 'Countdown':
     st.header("We will see each other again in...")
@@ -131,6 +142,8 @@ elif section == 'Countdown':
         hours, remainder = divmod(delta.seconds, 3600)
         minutes, seconds = divmod(remainder, 60)
         st.subheader(f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds")
+    if st.button("Return to buttons"):
+        st.session_state.section = 'Menu'
 
 # --- END CONTAINER ---
 st.markdown('</div>', unsafe_allow_html=True)
