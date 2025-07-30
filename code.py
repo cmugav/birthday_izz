@@ -1,7 +1,7 @@
 import streamlit as st
-import time
 from datetime import datetime
 from PIL import Image
+import time
 
 st.set_page_config(page_title = "HAPPY BIRTHDAY POOKIE", layout="centered")
 
@@ -21,11 +21,6 @@ st.markdown("""
         padding: 1.5rem;
         border-radius: 1rem;
         background-color: #f9f9f9;
-    }
-    .nav-button {
-        width: 100%;
-        margin-bottom: 10px;
-        font-size: 18px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -86,7 +81,7 @@ elif section == 'Dear Izzy':
     st.markdown("Lamentablemente, no te ha tocado una vida fácil. A pesar de que te mereces las estrellas, no ha sido una vida fácil.")
     st.markdown("Pero yo quiero hacer tu vida un poco más llevadera. Siempre estaré aquí para ti, pase lo que pase.")
     st.markdown("No sé qué haría sin ti. Estoy muy agradecida de que nuestros caminos se hayan cruzado y todavía más agradecida de tener el placer de ser amada por ti.")
-    st.markdown("Siempre estaré contigo, incluso cuando existen 12.000 km entre medio de nosotras.")
+    st.markdown("Siempre estaré contigo, incluso cuando hayan 12.000 km entre medio de nosotras.")
     st.markdown("Te amo,")
     st.markdown("Catalina")
 
@@ -128,8 +123,8 @@ elif section == 'Countdown':
     st.header("We will see each other again in...")
     target_date = datetime(2025, 8, 18, 10, 0, 0)
 
-    countdown_placeholder = st.empty()  # Countdown text placeholder
-    return_placeholder = st.empty()     # Return button placeholder
+    countdown_placeholder = st.empty()
+    return_placeholder = st.empty()
 
     while st.session_state.section == 'Countdown':
         now = datetime.now()
@@ -146,7 +141,6 @@ elif section == 'Countdown':
                 f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
             )
 
-        # Render Return to Menu button
         if return_placeholder.button("Return to Menu"):
             st.session_state.section = 'Menu'
             st.rerun()
