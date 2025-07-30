@@ -128,10 +128,10 @@ elif section == 'Countdown':
     st.header("We will see each other again in...")
     target_date = datetime(2025, 8, 18, 10, 0, 0)
 
-    countdown_placeholder = st.empty()
-    back_button = st.button("Return to Menu")
+    countdown_placeholder = st.empty()  # Countdown text placeholder
+    return_placeholder = st.empty()     # Return button placeholder
 
-    while st.session_state.section == 'Countdown' and not back_button:
+    while st.session_state.section == 'Countdown':
         now = datetime.now()
         delta = target_date - now
 
@@ -142,13 +142,16 @@ elif section == 'Countdown':
             days = delta.days
             hours, remainder = divmod(delta.seconds, 3600)
             minutes, seconds = divmod(remainder, 60)
-            countdown_placeholder.subheader(f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds")
+            countdown_placeholder.subheader(
+                f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
+            )
+
+        # Render Return to Menu button
+        if return_placeholder.button("Return to Menu"):
+            st.session_state.section = 'Menu'
+            st.rerun()
 
         time.sleep(1)
-        st.rerun()
-
-    if back_button:
-        st.session_state.section = 'Menu'
         st.rerun()
 
 # --- END CONTAINER ---
