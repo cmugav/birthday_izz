@@ -35,13 +35,14 @@ st.markdown("""
 # --- SESSION STATE FOR PAGE NAVIGATION ---
 
 if 'section' not in st.session_state:
-    st.session_state.section = 'Home'
+    st.session_state.section = 'Cumpleaños Feliz'
 
 # --- MAIN MOBILE CONTAINER ---
 
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
 # Show buttons only when section is 'Menu'
+
 if 'section' not in st.session_state:
     st.session_state.section = 'Menu'
 
@@ -79,7 +80,7 @@ if section == 'Cumpleaños Feliz':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
-    if st.button("Return to buttons"):
+    if st.button("Return to Menu"):
         st.session_state.section = 'Menu'
 
 
@@ -103,7 +104,7 @@ elif section == 'Dear Izzy':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
-    if st.button("Return to buttons"):
+    if st.button("Return to Menu"):
         st.session_state.section = 'Menu'
 
 elif section == 'Some of my favorite photos':
@@ -126,7 +127,7 @@ elif section == 'Some of my favorite photos':
         st.image([image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11])
     except FileNotFoundError:
         st.warning("⚠️ Add photos to the folder.")
-    if st.button("Return to buttons"):
+    if st.button("Return to Menu"):
         st.session_state.section = 'Menu'
 
 elif section == 'Countdown':
@@ -142,7 +143,7 @@ elif section == 'Countdown':
         hours, remainder = divmod(delta.seconds, 3600)
         minutes, seconds = divmod(remainder, 60)
         st.subheader(f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds")
-    if st.button("Return to buttons"):
+    if st.button("Return to Menu"):
         st.session_state.section = 'Menu'
 
 # --- END CONTAINER ---
