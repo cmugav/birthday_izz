@@ -32,10 +32,7 @@ if 'section' not in st.session_state:
 # --- MAIN CONTAINER ---
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
-# --- MAIN CONTAINER ---
-st.markdown('<div class="container">', unsafe_allow_html=True)
-
-# --- STRICT MENU BLOCK ---
+# --- MENU ---
 if st.session_state.section == 'Menu':
     st.title("HAPPY BIRTHDAY POOKIE")
 
@@ -124,32 +121,20 @@ elif section == 'Some of my favorite photos':
 
 elif section == 'Countdown':
     st.header("We will see each other again in...")
+
     target_date = datetime(2025, 8, 18, 10, 0, 0)
+    now = datetime.now()
+    delta = target_date - now
 
-    countdown_placeholder = st.empty()
-    return_placeholder = st.empty()
+    if delta.total_seconds() <= 0:
+        st.success("The time has arrived... we're together!")
+    else:
+        days = delta.days
+        hours, remainder = divmod(delta.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+        st.subheader(f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds")
 
-    while st.session_state.section == 'Countdown':
-        now = datetime.now()
-        delta = target_date - now
-
-        if delta.total_seconds() <= 0:
-            countdown_placeholder.success("The time has arrived... we're together!")
-            break
-        else:
-            days = delta.days
-            hours, remainder = divmod(delta.seconds, 3600)
-            minutes, seconds = divmod(remainder, 60)
-            countdown_placeholder.subheader(
-                f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
-            )
-
-        if return_placeholder.button("Return to Menu"):
-            st.session_state.section = 'Menu'
-            st.rerun()
-
-        time.sleep(1)
-        st.rerun()
+    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 # --- END CONTAINER ---
 st.markdown('</div>', unsafe_allow_html=True)
