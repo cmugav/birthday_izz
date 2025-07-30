@@ -41,19 +41,19 @@ if 'section' not in st.session_state:
 
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
-# --- VERTICAL NAVIGATION BUTTONS ---
+# --- VERTICAL NAVIGATION BUTTONS ONLY ON HOME ---
+
 st.title("HAPPY BIRTHDAY POOKIE")
 
-if st.button("Home", key="home", help = "Home"):
-    st.session_state.section = 'Home'
-if st.button("Dear Izzy", key="love", help = "A little letter for you"):
-    st.session_state.section = 'Dear Izzy'
-if st.button("Some of my favorite photos", key="photos", help = "Photos"):
-    st.session_state.section = 'Some of my favorite photos'
-if st.button("Countdown", key="countdown", help = "Countdown"):
-    st.session_state.section = 'Countdown'
+if st.session_state.section == 'Home':
+    if st.button("Dear Izzy", key="love", help="A little letter for you"):
+        st.session_state.section = 'Dear Izzy'
+    if st.button("Some of my favorite photos", key="photos", help="Photos"):
+        st.session_state.section = 'Some of my favorite photos'
+    if st.button("Countdown", key="countdown", help="Countdown"):
+        st.session_state.section = 'Countdown'
+    st.divider()
 
-st.divider()
 
 # --- SECTION CONTENT ---
 section = st.session_state.section
@@ -79,9 +79,12 @@ if section == 'Home':
 elif section == 'Dear Izzy':
     st.header("Dear Isabella,")
     st.markdown("You know I'm kind of a hopeless romantic, so this is a short message for you.")
-    st.markdown("Yo sé que, para ti, tu cumpleaños no es un día muy importante, pero para mi lo es. Estamos celebrando tu vida, y estoy segura de que eso es necesario, porque eres maravillosa, Isa. Personalmente, siento que eres un ángel caído del cielo")
-    st.markdown("No sé qué haría sin ti, y estoy muy agradecida de que nuestros caminos se hayan cruzado.")
-    st.markdown("Te mereces absolutamente todo lo bueno del mundo.")
+    st.markdown("Yo sé que, para ti, tu cumpleaños no es un día muy importante.")
+    st.markdown("Para mi lo es. Estamos celebrando tu vida, tu llegada al mundo y el cambio que has hecho en él. Eres un ángel caído del cielo y te mereces absolutamente todo, pero todo lo bueno que hay en este mundo.")
+    st.markdown("Lamentablemente, no te ha tocado una vida fácil. A pesar de que te mereces las estrellas, no ha sido una vida fácil.")
+    st.markdown("Pero yo quiero hacer tu vida un poco más llevadera. Siempre estaré aquí para ti, pase lo que pase.")
+    st.markdown("No sé qué haría sin ti. Estoy muy agradecida de que nuestros caminos se hayan cruzado y todavía más agradecida de tener el placer de ser amada por ti.")
+    st.markdown("Siempre estaré contigo, incluso cuando existen 12.000 km entre medio de nosotras.")
     st.markdown("Te amo,")
     st.markdown("Catalina")
 
