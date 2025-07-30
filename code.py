@@ -29,28 +29,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Initialize session state to show menu first
+# Initialize session state
 if 'section' not in st.session_state:
     st.session_state.section = 'Menu'
 
-# --- MAIN MOBILE CONTAINER ---
+# --- MAIN CONTAINER ---
 st.markdown('<div class="container">', unsafe_allow_html=True)
 
-# Only show title and buttons on menu page
+# --- MENU SECTION ---
 if st.session_state.section == 'Menu':
     st.title("HAPPY BIRTHDAY POOKIE")
 
-    if st.button("Cumpleaños Feliz", key="home", help="Happy berdei to you"):
-        st.session_state.section = 'Cumpleaños Feliz'
-    if st.button("Dear Izzy", key="love", help="A little letter for you"):
-        st.session_state.section = 'Dear Izzy'
-    if st.button("Some of my favorite photos", key="photos", help="Photos"):
-        st.session_state.section = 'Some of my favorite photos'
-    if st.button("Countdown", key="countdown", help="Countdown"):
-        st.session_state.section = 'Countdown'
+    st.button("Cumpleaños Feliz", key="home", help="Happy berdei to you",
+              on_click=lambda: st.session_state.update(section='Cumpleaños Feliz'))
+
+    st.button("Dear Izzy", key="love", help="A little letter for you",
+              on_click=lambda: st.session_state.update(section='Dear Izzy'))
+
+    st.button("Some of my favorite photos", key="photos", help="Photos",
+              on_click=lambda: st.session_state.update(section='Some of my favorite photos'))
+
+    st.button("Countdown", key="countdown", help="Countdown",
+              on_click=lambda: st.session_state.update(section='Countdown'))
+
     st.divider()
-
-
 
 # --- SECTION CONTENT ---
 section = st.session_state.section
@@ -72,9 +74,8 @@ if section == 'Cumpleaños Feliz':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
-    if st.button("Return to Menu"):
-        st.session_state.section = 'Menu'
 
+    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Dear Izzy':
     st.header("Dear Isabella,")
@@ -96,8 +97,8 @@ elif section == 'Dear Izzy':
     </iframe>
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
-    if st.button("Return to Menu"):
-        st.session_state.section = 'Menu'
+
+    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Some of my favorite photos':
     st.header("Our Photos")
@@ -119,8 +120,8 @@ elif section == 'Some of my favorite photos':
         st.image([image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11])
     except FileNotFoundError:
         st.warning("⚠️ Add photos to the folder.")
-    if st.button("Return to Menu"):
-        st.session_state.section = 'Menu'
+    
+    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Countdown':
     st.header("We will see each other again in...")
@@ -135,8 +136,8 @@ elif section == 'Countdown':
         hours, remainder = divmod(delta.seconds, 3600)
         minutes, seconds = divmod(remainder, 60)
         st.subheader(f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds")
-    if st.button("Return to Menu"):
-        st.session_state.section = 'Menu'
+    
+    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 # --- END CONTAINER ---
 st.markdown('</div>', unsafe_allow_html=True)
