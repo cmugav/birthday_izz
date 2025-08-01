@@ -56,7 +56,7 @@ section = st.session_state.section
 if section == 'Cumpleaños Feliz':
     st.header("HAPPY BIRTHDAY ISABELLA!")
     st.markdown("I actually don't know what this is, but I thought it would be a nice gesture for your birthday.")
-    st.markdown("Not being there with you makes me deeply sad, but I'm really happy that you're getting to spend your birthday with Naya and Malou.")
+    st.markdown("It breaks my heart not being with you today. I miss you so much, especially on a day that means so much to me. Still, I'm genuinely happy knowing you're surrounded by friends who love and celebrate you. You deserve all the joy in the world.")
     st.markdown("I hope you have an AMAZING day.")
     st.markdown("Love,")
     st.markdown("Catalina")
@@ -75,14 +75,13 @@ if section == 'Cumpleaños Feliz':
 
 elif section == 'Dear Izzy':
     st.header("Dear Isabella,")
-    st.markdown("You know I'm kind of a hopeless romantic, so this is a short message for you.")
     st.markdown("Yo sé que, para ti, tu cumpleaños no es un día muy importante.")
     st.markdown("Para mi lo es. Estamos celebrando tu vida, tu llegada al mundo y el cambio que has hecho en él. Eres un ángel caído del cielo y te mereces absolutamente todo, pero todo lo bueno que hay en este mundo.")
-    st.markdown("Lamentablemente, no te ha tocado una vida fácil. A pesar de que te mereces las estrellas, no ha sido una vida fácil.")
-    st.markdown("Pero yo quiero hacer tu vida un poco más llevadera. Siempre estaré aquí para ti, pase lo que pase.")
+    st.markdown("Lamentablemente, no te ha tocado una fácil. A pesar de que te mereces las estrellas, no ha sido una vida fácil para ti.")
+    st.markdown("Pero yo quiero hacer tu vida un poco más llevadera. Siempre estaré aquí, pase lo que pase.")
     st.markdown("No sé qué haría sin ti. Estoy muy agradecida de que nuestros caminos se hayan cruzado y todavía más agradecida de tener el placer de ser amada por ti.")
-    st.markdown("Siempre estaré contigo, incluso cuando hayan 12.000 km entre medio de nosotras.")
-    st.markdown("Te amo,")
+    st.markdown("Siempre voy a estar contigo, dispuesta a ayudarte, apoyarte y amarte, aunque nos separen 12.000 km. La distancia nunca va a cambiar todo lo que siento por ti.")
+    st.markdown("Te amo.")
     st.markdown("Catalina")
 
     spotify_embed_code = """
@@ -94,13 +93,13 @@ elif section == 'Dear Izzy':
     """
     st.markdown(spotify_embed_code, unsafe_allow_html=True)
 
-    st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
+    st.button("Return to Menu", on_click = lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Some of my favorite photos':
     st.header("Our Photos")
-    st.markdown("I love photos and videos. I love documenting my life and the people I share it with.")
-    st.markdown("And I love you, so I love OUR photos.")
-    st.markdown("A continuación, algunas de mis fotos favoritas de las dos.")
+    st.markdown("I've always loved taking photos and videos, capturing little moments and freezing memories in time.")
+    st.markdown("Ever since you came into my life, our memories have become my favorite ones to keep.")
+    st.markdown("So here are some of my favorite photos of us, moments I hold close to my heart.")
     try:
         image1 = Image.open("Images/image1.jpeg")
         image2 = Image.open("Images/image2.jpeg")
@@ -120,14 +119,14 @@ elif section == 'Some of my favorite photos':
     st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Countdown':
-    st.header("We will see each other again in...")
+    st.header("We'll see each other again in just a little while, the countdown has already begun. I carry your smile and our memories with me every day, but soon I won't have to imagine it anymore. The miles will melt away in...")
 
     target_date = datetime(2025, 8, 18, 10, 0, 0)
     now = datetime.now()
     delta = target_date - now
 
     if delta.total_seconds() <= 0:
-        st.success("The time has arrived... we're together!")
+        st.success("After all the waiting, the distance and the longing, the time has come. We're together!")
     else:
         days = delta.days
         hours, remainder = divmod(delta.seconds, 3600)
