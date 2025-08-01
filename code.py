@@ -117,7 +117,9 @@ elif section == 'Some of my favorite photos':
     st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Countdown':
-    st.header("We'll see each other again in just a little while, the countdown has already begun. I carry your smile and our memories with me every day, but soon I won't have to imagine it anymore. The miles will melt away in...")
+    st.header("We'll see each other again in just a little while, the countdown has already begun!")
+    st.header("I carry your smile and our memories with me every day, but soon I won't have to imagine it anymore.")
+    st.header("The miles will go away in..")
 
     target_date = datetime(2025, 8, 18, 10, 0, 0)
     now = datetime.now()
