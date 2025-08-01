@@ -15,17 +15,10 @@ st.markdown("""
         padding-top: 0rem;
     }
 
-    .container {
-        max-width: 375px;
-        margin: auto;
-        padding: 1.5rem;
-        border-radius: 1rem;
-        background-color: #f9f9f9;
-    }
-            
-    /* Hide the top white bar */
+    /* Change top white bar background to black */
     .block-container > div:first-child {
-        display: none;
+        background-color: #0e1117;  /* Match your background */
+        border-radius: 0 !important;
     }
     </style>
 """, unsafe_allow_html=True)
