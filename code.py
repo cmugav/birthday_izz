@@ -119,7 +119,7 @@ elif section == 'Some of my favorite photos':
 elif section == 'Countdown':
     st.header("We'll see each other again in just a little while, the countdown has already begun!")
     st.header("I carry your smile and our memories with me every day, but soon I won't have to imagine it anymore.")
-    st.header("The kilometers will be gone in..")
+    st.header("The kilometers will be gone in...")
 
     target_date = datetime(2025, 8, 18, 10, 0, 0)
     now = datetime.now()
