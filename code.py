@@ -54,7 +54,7 @@ section = st.session_state.section
 if section == 'Cumpleaños Feliz':
     st.header("HAPPY BIRTHDAY ISABELLA!")
     st.markdown("I actually don't know what this is, but I thought it would be a nice gesture for your birthday.")
-    st.markdown("It breaks my heart not being with you today. I miss you so much, especially on a day that means so much to me. Still, I'm genuinely happy knowing you're surrounded by friends who love and celebrate you. You deserve all the joy in the world.")
+    st.markdown("It breaks my heart not being there with you today. I miss you so much, especially on this day which means so much to me. Still, I'm genuinely happy to know that you're surrounded by friends who love and celebrate you. You deserve all the joy in the world.")
     st.markdown("I hope you have an AMAZING day.")
     st.markdown("Love,")
     st.markdown("Catalina")
@@ -72,10 +72,10 @@ if section == 'Cumpleaños Feliz':
     st.button("Return to Menu", on_click=lambda: st.session_state.update(section='Menu'))
 
 elif section == 'Dear Izzy':
-    st.header("Dear Isabella,")
+    st.header("Querida Isabella,")
     st.markdown("Yo sé que, para ti, tu cumpleaños no es un día muy importante.")
     st.markdown("Para mi lo es. Estamos celebrando tu vida, tu llegada al mundo y el cambio que has hecho en él. Eres un ángel caído del cielo y te mereces absolutamente todo, pero todo lo bueno que hay en este mundo.")
-    st.markdown("Lamentablemente, no te ha tocado una fácil. A pesar de que te mereces las estrellas, no ha sido una vida fácil para ti.")
+    st.markdown("Lamentablemente, no te ha tocado una vida fácil. A pesar de que te mereces las estrellas, no ha sido fácil para ti.")
     st.markdown("Pero yo quiero hacer tu vida un poco más llevadera. Siempre estaré aquí, pase lo que pase.")
     st.markdown("No sé qué haría sin ti. Estoy muy agradecida de que nuestros caminos se hayan cruzado y todavía más agradecida de tener el placer de ser amada por ti.")
     st.markdown("Siempre voy a estar contigo, dispuesta a ayudarte, apoyarte y amarte, aunque nos separen 12.000 km. La distancia nunca va a cambiar todo lo que siento por ti.")
