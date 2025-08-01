@@ -22,6 +22,11 @@ st.markdown("""
         border-radius: 1rem;
         background-color: #f9f9f9;
     }
+            
+    /* Hide the top white bar */
+    .block-container > div:first-child {
+        display: none;
+    }
     </style>
 """, unsafe_allow_html=True)
 
